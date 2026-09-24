@@ -215,16 +215,15 @@ export const AdminVercelDeploy: React.FC = () => {
         <pre className="p-4 bg-stone-950 rounded-xl font-mono text-xs text-stone-300 overflow-x-auto">
 {`{
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
   "headers": [
     {
-      "source": "/assets/(.*)\\\\.js",
+      "source": "/(.*)\\\\.js",
       "headers": [
-        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" }
+        { "key": "Content-Type", "value": "text/javascript; charset=utf-8" }
       ]
     },
     {
-      "source": "/assets/(.*)\\\\.css",
+      "source": "/(.*)\\\\.css",
       "headers": [
         { "key": "Content-Type", "value": "text/css; charset=utf-8" }
       ]
@@ -232,7 +231,7 @@ export const AdminVercelDeploy: React.FC = () => {
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\\\..*).*)",
+      "source": "/((?!.*\\\\.[a-zA-Z0-9]+$).*)",
       "destination": "/index.html"
     }
   ]
