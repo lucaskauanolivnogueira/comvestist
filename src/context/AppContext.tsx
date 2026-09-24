@@ -69,33 +69,63 @@ const STORAGE_KEYS = {
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [siteSettings, setSiteSettings] = useState<SiteSettings>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-    return saved ? JSON.parse(saved) : initialSiteSettings;
+    try {
+      if (typeof window === 'undefined') return initialSiteSettings;
+      const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+      return saved ? JSON.parse(saved) : initialSiteSettings;
+    } catch {
+      return initialSiteSettings;
+    }
   });
 
   const [newsList, setNewsList] = useState<NewsItem[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.NEWS);
-    return saved ? JSON.parse(saved) : initialNews;
+    try {
+      if (typeof window === 'undefined') return initialNews;
+      const saved = localStorage.getItem(STORAGE_KEYS.NEWS);
+      return saved ? JSON.parse(saved) : initialNews;
+    } catch {
+      return initialNews;
+    }
   });
 
   const [selectiveProcesses, setSelectiveProcesses] = useState<SelectiveProcess[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.PROCESSES);
-    return saved ? JSON.parse(saved) : initialSelectiveProcesses;
+    try {
+      if (typeof window === 'undefined') return initialSelectiveProcesses;
+      const saved = localStorage.getItem(STORAGE_KEYS.PROCESSES);
+      return saved ? JSON.parse(saved) : initialSelectiveProcesses;
+    } catch {
+      return initialSelectiveProcesses;
+    }
   });
 
   const [applications, setApplications] = useState<CandidateApplication[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.APPLICATIONS);
-    return saved ? JSON.parse(saved) : [];
+    try {
+      if (typeof window === 'undefined') return [];
+      const saved = localStorage.getItem(STORAGE_KEYS.APPLICATIONS);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [sqlConfig, setSqlConfig] = useState<SqlConfig>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.SQL_CONFIG);
-    return saved ? JSON.parse(saved) : initialSqlConfig;
+    try {
+      if (typeof window === 'undefined') return initialSqlConfig;
+      const saved = localStorage.getItem(STORAGE_KEYS.SQL_CONFIG);
+      return saved ? JSON.parse(saved) : initialSqlConfig;
+    } catch {
+      return initialSqlConfig;
+    }
   });
 
   const [currentUser, setCurrentUser] = useState<AdminUser | null>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.ADMIN_USER);
-    return saved ? JSON.parse(saved) : null;
+    try {
+      if (typeof window === 'undefined') return null;
+      const saved = localStorage.getItem(STORAGE_KEYS.ADMIN_USER);
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
   });
 
   const [activeView, setActiveView] = useState<'home' | 'process-detail' | 'admin' | 'all-news'>('home');

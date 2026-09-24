@@ -13,6 +13,7 @@ import { AdminSiteManager } from './components/admin/AdminSiteManager';
 import { AdminSqlExport } from './components/admin/AdminSqlExport';
 import { AdminCandidateManager } from './components/admin/AdminCandidateManager';
 import { AdminVercelDeploy } from './components/admin/AdminVercelDeploy';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Shield, ExternalLink, Calendar, Award, CheckCircle2 } from 'lucide-react';
 
 const MainContent: React.FC = () => {
@@ -156,8 +157,10 @@ const MainContent: React.FC = () => {
 
 export default function App() {
   return (
-    <AppProvider>
-      <MainContent />
-    </AppProvider>
+    <ErrorBoundary>
+      <AppProvider>
+        <MainContent />
+      </AppProvider>
+    </ErrorBoundary>
   );
 }

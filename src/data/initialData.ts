@@ -1,5 +1,11 @@
 import { SelectiveProcess, NewsItem, SiteSettings, SqlConfig } from '../types';
 
+import imgHeroSlider from '../assets/images/hero_vestibular_slider_1790277221192.jpg';
+import imgNewsIsencao from '../assets/images/news_isencao_taxa_1790277232243.jpg';
+import imgCardMedicina from '../assets/images/card_vestibular_medicina_1790277241917.jpg';
+import imgCardConcurso from '../assets/images/card_concurso_docentes_1790277251257.jpg';
+import imgCardEad from '../assets/images/card_seletivo_ead_tech_1790277260973.jpg';
+
 export const initialSqlConfig: SqlConfig = {
   user: 'if0_42366022',
   password: 'OQdKtGCKW1',
@@ -36,7 +42,7 @@ export const initialNews: NewsItem[] = [
 O processo seletivo deste ano conta com inovações no formato da prova objetiva e na redação em língua portuguesa, priorizando a avaliação reflexiva e competências contemporâneas. Candidatos de escolas públicas terão direito à reserva de vagas conforme a legislação vigente de cotas.
 
 O período de inscrições será exclusivamente online através do Portal do Candidato, com taxa fixada em R$ 120,00. As provas presenciais serão aplicadas no dia 24 de novembro nas principais cidades polo da região.`,
-    image: '/src/assets/images/hero_vestibular_slider_1790277221192.jpg',
+    image: imgHeroSlider,
     publishDate: '24/09/2026',
     author: 'Secretaria Geral de Comunicação - COVEST',
     category: 'Vestibular Geral',
@@ -54,7 +60,7 @@ O período de inscrições será exclusivamente online através do Portal do Can
 Para ter direito, o candidato deve comprovar inscrição ativa no Cadastro Único para Programas Sociais do Governo Federal (CadÚnico) com NIS válido ou renda familiar per capita igual ou inferior a um salário mínimo e meio, tendo cursado todo o ensino médio em escola pública.
 
 O resultado preliminar das solicitações de isenção será divulgado no dia 05 de outubro, com prazo de dois dias úteis para interposição de recursos administrativos.`,
-    image: '/src/assets/images/news_isencao_taxa_1790277232243.jpg',
+    image: imgNewsIsencao,
     publishDate: '23/09/2026',
     author: 'Coordenação de Atendimento Social',
     category: 'Isenção & Cotas',
@@ -70,7 +76,7 @@ O resultado preliminar das solicitações de isenção será divulgado no dia 05
     content: `Foi homologado pelo Conselho Superior da instituição o resultado definitivo das notas e a relação nominal dos candidatos classificados em 1ª chamada para o curso de Medicina (Campus Central).
 
 Os candidatos convocados devem ficar atentos aos prazos da pré-matrícula acadêmica online, anexando a documentação pessoal, histórico escolar e comprovante de vacinação atualizado no sistema acadêmico. A ausência de manifestação dentro do prazo implicará na perda automática da vaga e convocação imediata da lista de espera.`,
-    image: '/src/assets/images/card_vestibular_medicina_1790277241917.jpg',
+    image: imgCardMedicina,
     publishDate: '20/09/2026',
     author: 'Comissão Especial de Medicina',
     category: 'Resultados & Matrículas',
@@ -87,7 +93,7 @@ export const initialSelectiveProcesses: SelectiveProcess[] = [
     slug: 'vestibular-medicina-2026-1',
     category: 'vestibular',
     status: 'inscricoes_abertas',
-    image: '/src/assets/images/card_vestibular_medicina_1790277241917.jpg',
+    image: imgCardMedicina,
     badgeTag: 'Medicina e Saúde',
     registrationStart: '2026-09-15',
     registrationEnd: '2026-10-25',
@@ -130,7 +136,7 @@ A prova é composta por 60 questões de múltipla escolha com peso diferenciado 
     slug: 'concurso-publico-docentes-tecnicos-2026',
     category: 'concurso',
     status: 'inscricoes_abertas',
-    image: '/src/assets/images/card_concurso_docentes_1790277251257.jpg',
+    image: imgCardConcurso,
     badgeTag: 'Carreira Pública / Docência',
     registrationStart: '2026-09-20',
     registrationEnd: '2026-11-05',
@@ -176,7 +182,7 @@ O certame compreenderá Prova Escrita Discursiva de Conhecimentos Específicos, 
     slug: 'processo-seletivo-ead-tecnologias-2026',
     category: 'seletivo_ead',
     status: 'inscricoes_abertas',
-    image: '/src/assets/images/card_seletivo_ead_tech_1790277260973.jpg',
+    image: imgCardEad,
     badgeTag: 'Educação a Distância & TI',
     registrationStart: '2026-09-01',
     registrationEnd: '2026-10-30',
@@ -218,7 +224,7 @@ Polos de apoio presencial modernos com tutoria presencial e suporte acadêmico p
     slug: 'vestibular-geral-unificado-2026',
     category: 'vestibular',
     status: 'inscricoes_abertas',
-    image: '/src/assets/images/hero_vestibular_slider_1790277221192.jpg',
+    image: imgHeroSlider,
     badgeTag: 'Cursos Tradicionais',
     registrationStart: '2026-09-25',
     registrationEnd: '2026-11-10',
