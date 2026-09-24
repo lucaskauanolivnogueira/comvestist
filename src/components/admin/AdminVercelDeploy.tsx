@@ -88,15 +88,15 @@ export const AdminVercelDeploy: React.FC = () => {
 
       {/* Two Methods to Deploy */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Method 1: GitHub / GitLab (Recommended) */}
+        {/* Method 1: GitHub via Vercel Web Dashboard (100% Online) */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-7 space-y-5 shadow-sm">
           <div className="flex items-center gap-2 text-stone-900 font-serif font-bold text-lg">
             <Github className="w-5 h-5 text-stone-900" />
-            <span>Método 1: Pelo GitHub (Recomendado)</span>
+            <span>Opção 1: Vercel Online via GitHub (Sem Terminal)</span>
           </div>
 
           <p className="text-xs text-stone-600 leading-relaxed">
-            Se o seu projeto estiver em um repositório no GitHub ou GitLab, a Vercel atualiza o site automaticamente a cada commit:
+            Você faz tudo pelo navegador diretamente no painel da Vercel (<a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-amber-900 font-semibold underline">vercel.com</a>):
           </p>
 
           <ol className="space-y-3.5 text-xs text-stone-700">
@@ -105,7 +105,7 @@ export const AdminVercelDeploy: React.FC = () => {
                 1
               </span>
               <div>
-                <strong>Acesse a Vercel:</strong> Entre em <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-amber-900 font-semibold underline">vercel.com</a> e faça login com sua conta do GitHub.
+                <strong>Entre no Vercel Online:</strong> Faça login no site <a href="https://vercel.com/login" target="_blank" rel="noopener noreferrer" className="text-amber-900 font-semibold underline">vercel.com/login</a> com a sua conta GitHub.
               </div>
             </li>
 
@@ -114,7 +114,7 @@ export const AdminVercelDeploy: React.FC = () => {
                 2
               </span>
               <div>
-                <strong>Importe o Repositório:</strong> Clique em <strong>&quot;Add New...&quot; &gt; &quot;Project&quot;</strong> e selecione este repositório.
+                <strong>Importar Projeto:</strong> Na tela inicial do painel da Vercel, clique no botão azul <strong>&quot;Add New...&quot;</strong> e escolha <strong>&quot;Project&quot;</strong>.
               </div>
             </li>
 
@@ -123,12 +123,7 @@ export const AdminVercelDeploy: React.FC = () => {
                 3
               </span>
               <div>
-                <strong>Configurações de Build:</strong> A Vercel detecta automaticamente Vite. Caso peça confirmação:
-                <div className="mt-1.5 p-2.5 bg-stone-50 rounded-lg font-mono text-[11px] text-stone-800 space-y-1">
-                  <div>Framework Preset: <strong>Vite</strong></div>
-                  <div>Build Command: <code className="text-amber-800">npm run build</code></div>
-                  <div>Output Directory: <code className="text-amber-800">dist</code></div>
-                </div>
+                <strong>Selecione o Repositório:</strong> Ao lado do nome do seu repositório deste site, clique no botão <strong>&quot;Import&quot;</strong>.
               </div>
             </li>
 
@@ -137,65 +132,71 @@ export const AdminVercelDeploy: React.FC = () => {
                 4
               </span>
               <div>
-                <strong>Clique em &quot;Deploy&quot;:</strong> Em cerca de 30 segundos seu site estará no ar com link público ativo!
+                <strong>Confirmar e Deploy:</strong> O painel da Vercel já reconhece tudo sozinho:
+                <div className="mt-1.5 p-2.5 bg-stone-50 rounded-lg font-mono text-[11px] text-stone-800 space-y-1 border border-stone-200">
+                  <div>Framework Preset: <span className="text-emerald-700 font-bold">Vite</span></div>
+                  <div>Root Directory: <code>./</code></div>
+                  <div>Build Command: <code>npm run build</code></div>
+                  <div>Output Directory: <code>dist</code></div>
+                </div>
+                <p className="mt-1 text-stone-500 text-[11px]">Basta clicar no botão azul <strong>&quot;Deploy&quot;</strong>!</p>
               </div>
             </li>
           </ol>
         </div>
 
-        {/* Method 2: Vercel CLI (Direto do Terminal) */}
+        {/* Method 2: Explaining Online Drag & Drop vs Git */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-7 space-y-5 shadow-sm">
           <div className="flex items-center gap-2 text-stone-900 font-serif font-bold text-lg">
-            <Terminal className="w-5 h-5 text-amber-700" />
-            <span>Método 2: Pelo Terminal com Vercel CLI</span>
+            <Sparkles className="w-5 h-5 text-amber-700" />
+            <span>O que acontece no Painel Online da Vercel</span>
           </div>
 
           <p className="text-xs text-stone-600 leading-relaxed">
-            Você também pode publicar diretamente do terminal com apenas dois comandos rápidos:
+            Ao conectar seu projeto na versão web da Vercel:
           </p>
 
-          <div className="space-y-4">
-            <div>
-              <div className="flex items-center justify-between text-[11px] font-semibold text-stone-700 mb-1">
-                <span>1. Instale a Vercel CLI globalmente:</span>
-                <button
-                  onClick={() => copyToClipboard('npm i -g vercel', 'c1')}
-                  className="text-stone-500 hover:text-stone-900 flex items-center gap-1"
-                >
-                  <Copy className="w-3 h-3" />
-                  <span>{copiedStep === 'c1' ? 'Copiado!' : 'Copiar'}</span>
-                </button>
-              </div>
-              <pre className="p-3 bg-stone-900 text-amber-300 rounded-lg font-mono text-xs">
-                npm i -g vercel
-              </pre>
+          <div className="space-y-3 text-xs text-stone-700">
+            <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
+              <span className="font-bold text-stone-900 block flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Compilação Automática na Nuvem</span>
+              </span>
+              <p className="text-[11px] text-stone-600">
+                Os servidores da Vercel rodam o build automaticamente e já geram o site otimizado na nuvem, sem você precisar compilar nada no seu computador.
+              </p>
             </div>
 
-            <div>
-              <div className="flex items-center justify-between text-[11px] font-semibold text-stone-700 mb-1">
-                <span>2. Faça o deploy em produção:</span>
-                <button
-                  onClick={() => copyToClipboard('vercel --prod', 'c2')}
-                  className="text-stone-500 hover:text-stone-900 flex items-center gap-1"
-                >
-                  <Copy className="w-3 h-3" />
-                  <span>{copiedStep === 'c2' ? 'Copiado!' : 'Copiar'}</span>
-                </button>
-              </div>
-              <pre className="p-3 bg-stone-900 text-amber-300 rounded-lg font-mono text-xs">
-                vercel --prod
-              </pre>
+            <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
+              <span className="font-bold text-stone-900 block flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Roteamento com vercel.json</span>
+              </span>
+              <p className="text-[11px] text-stone-600">
+                A Vercel lê automaticamente o arquivo <code className="font-mono text-stone-800 font-semibold">/vercel.json</code> que já criamos no seu projeto, garantindo que o slider, os seletivos e o painel ADM funcionem perfeitamente.
+              </p>
             </div>
 
-            <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200 text-xs text-stone-600 space-y-1">
-              <span className="font-semibold text-stone-900 block">Respostas do assistente no terminal:</span>
-              <p>• Set up and deploy? Digite <strong>Y</strong> (Enter)</p>
-              <p>• Which scope? Selecione sua conta (Enter)</p>
-              <p>• Link to existing project? Digite <strong>N</strong> (Enter)</p>
-              <p>• Project name? Pressione <strong>Enter</strong> para manter o padrão</p>
-              <p>• Directory? Pressione <strong>Enter</strong> (./)</p>
+            <div className="p-3.5 bg-stone-50 rounded-xl border border-stone-200 space-y-1">
+              <span className="font-bold text-stone-900 block flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Link Imediato e Grátis</span>
+              </span>
+              <p className="text-[11px] text-stone-600">
+                Assim que termina a barra de progresso, a Vercel gera na hora um link como <code className="font-mono text-amber-900 font-bold">https://seu-projeto.vercel.app</code> que você já pode enviar para os candidatos.
+              </p>
             </div>
           </div>
+
+          <a
+            href="https://vercel.com/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs rounded-lg transition-colors shadow-sm"
+          >
+            <span>Ir para a Página de Criação de Projetos na Vercel</span>
+            <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
+          </a>
         </div>
       </div>
 
