@@ -12,11 +12,12 @@ import { AdminDashboard } from './components/admin/AdminDashboard';
 import { AdminSiteManager } from './components/admin/AdminSiteManager';
 import { AdminSqlExport } from './components/admin/AdminSqlExport';
 import { AdminCandidateManager } from './components/admin/AdminCandidateManager';
+import { AdminVercelDeploy } from './components/admin/AdminVercelDeploy';
 import { Shield, ExternalLink, Calendar, Award, CheckCircle2 } from 'lucide-react';
 
 const MainContent: React.FC = () => {
   const { activeView, currentUser, navigateTo, siteSettings } = useApp();
-  const [adminTab, setAdminTab] = useState<'dashboard' | 'site' | 'sql' | 'candidatos'>('dashboard');
+  const [adminTab, setAdminTab] = useState<'dashboard' | 'site' | 'sql' | 'candidatos' | 'vercel'>('dashboard');
 
   // --- Admin View ---
   if (activeView === 'admin') {
@@ -63,6 +64,7 @@ const MainContent: React.FC = () => {
               {adminTab === 'site' && <AdminSiteManager />}
               {adminTab === 'sql' && <AdminSqlExport />}
               {adminTab === 'candidatos' && <AdminCandidateManager />}
+              {adminTab === 'vercel' && <AdminVercelDeploy />}
             </div>
           </main>
         </div>

@@ -9,11 +9,12 @@ import {
   Download,
   LogOut,
   Shield,
+  Rocket,
 } from 'lucide-react';
 
 interface Props {
-  currentTab: 'dashboard' | 'site' | 'sql' | 'candidatos';
-  onSelectTab: (tab: 'dashboard' | 'site' | 'sql' | 'candidatos') => void;
+  currentTab: 'dashboard' | 'site' | 'sql' | 'candidatos' | 'vercel';
+  onSelectTab: (tab: 'dashboard' | 'site' | 'sql' | 'candidatos' | 'vercel') => void;
 }
 
 export const AdminSidebar: React.FC<Props> = ({ currentTab, onSelectTab }) => {
@@ -112,6 +113,27 @@ export const AdminSidebar: React.FC<Props> = ({ currentTab, onSelectTab }) => {
             </div>
             <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-800 text-stone-300 font-mono tabular-nums">
               {applications.length}
+            </span>
+          </button>
+
+          <button
+            onClick={() => onSelectTab('vercel')}
+            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-semibold transition-colors ${
+              currentTab === 'vercel'
+                ? 'bg-amber-500 text-stone-950 shadow-sm'
+                : 'text-stone-300 hover:bg-stone-800 hover:text-white'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Rocket className="w-4 h-4" />
+              <span>Deploy na Vercel</span>
+            </div>
+            <span
+              className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
+                currentTab === 'vercel' ? 'bg-stone-950/20 text-stone-950 font-bold' : 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60'
+              }`}
+            >
+              Ativo
             </span>
           </button>
         </nav>

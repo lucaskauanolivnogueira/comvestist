@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 interface Props {
-  onSelectTab: (tab: 'dashboard' | 'site' | 'sql' | 'candidatos') => void;
+  onSelectTab: (tab: 'dashboard' | 'site' | 'sql' | 'candidatos' | 'vercel') => void;
 }
 
 export const AdminDashboard: React.FC<Props> = ({ onSelectTab }) => {
@@ -246,6 +246,27 @@ export const AdminDashboard: React.FC<Props> = ({ onSelectTab }) => {
               className="w-full py-2 px-4 bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-medium rounded-lg transition-colors text-center"
             >
               Ver Instruções & Código SQL
+            </button>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-stone-200 p-5 space-y-3 shadow-sm">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-stone-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                Hospedagem na Vercel
+              </span>
+              <span className="text-[10px] uppercase font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Pronto
+              </span>
+            </div>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              O arquivo de roteamento <code className="font-mono text-stone-900">vercel.json</code> já está configurado. Conecte ao seu repositório na Vercel para ter deploy automático.
+            </p>
+            <button
+              onClick={() => onSelectTab('vercel')}
+              className="w-full py-2 px-3 bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-xs rounded-lg transition-colors text-center block"
+            >
+              Ver Passo a Passo da Vercel
             </button>
           </div>
         </div>
