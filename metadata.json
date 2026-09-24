@@ -1,0 +1,6 @@
+{
+  "name": "Portal da Comissão Organizadora do Vestibular",
+  "description": "Portal oficial de vestibulares, seletivos e concursos públicos com notícias em tempo real, editais, cronograma, inscrições e painel administrativo com gerador SQL para phpMyAdmin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
