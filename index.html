@@ -2,6 +2,25 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Safeguard for environments/extensions attempting to override window.fetch
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var activeFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return activeFetch;
+            },
+            set: function(fn) {
+              activeFetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (_) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portal da Comissão Organizadora do Vestibular</title>
     <meta name="description" content="Portal oficial de vestibulares, seletivos e concursos públicos com notícias em tempo real, editais, cronograma, inscrições e painel administrativo com gerador SQL para phpMyAdmin." />
